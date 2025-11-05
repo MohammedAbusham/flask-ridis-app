@@ -1,22 +1,26 @@
-
 services:
   web:
-    build: .
+    build:
+      context: ./app # Spacify building dir for the app.
+      dockerfile: Dockerfile # file for building the app image.
+    container_name: flask_app # Tagging the container
     ports:
       - "5000:5000"
     environment:
-      - REDIS_HOST=redis
+      - REDIS_HOST=redisdb
       - REDIS_PORT=6379
     depends_on:
       - db
 
   db:
-    image: redis:7
+    build:
+      context: ./db # Spacify building dir for the bd.
+      dockerfile: Dockerfile  # file for building the db image.
     container_name: redis_server
     ports:
       - "6379:6379"
     volumes:
-      - redis_data:/data  # Persistent Redis volume
+      - redis_data:/data
 volumes:
   redis_data: {}
    
