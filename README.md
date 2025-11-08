@@ -8,6 +8,8 @@ It’s intended as a learning resource for understanding containerized developme
 
 Follow the steps below to build and run your Flask + Redis setup:
 
+## 🛠 Building steps
+
 1. **Install Docker**  
    Download and install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 
@@ -24,3 +26,16 @@ Follow the steps below to build and run your Flask + Redis setup:
    Write your docker-compose in a file named 'docker-compose.yml'.
    - In this file you need to declar the version of python and Redis DB you want to build, make the directory and copy the files in.
    - You will also assign the ports, map and mount the volume for persistent data storage.
+
+---
+
+## ⚡ Running Steps
+
+1. **Run the docker-compose file**
+'''bash
+ docker compose up --build
+'''
+Or
+'''bash
+docker compose up -d --build
+'''
